@@ -13,10 +13,9 @@ const demos = [
     tagline: "Custom booking system for an inshore fishing guide",
     description:
       "A full-service booking platform built for a one-person charter operation. Customers browse trips, pick an open time slot, and pay a deposit online in a couple of minutes. No phone tag, no third-party platform taking 6%.",
-    url: "https://rockport-bay-charters.vercel.app", // ← swap this for your real Vercel URL
+    url: "https://rockport-bay-charters-demov1.vercel.app",
     features: [
       { icon: CreditCard,      label: "Stripe deposit payments" },
-      { icon: Calendar,        label: "Google Calendar two-way sync" },
       { icon: Mail,            label: "Automated booking emails" },
       { icon: LayoutDashboard, label: "Owner admin dashboard" },
     ],

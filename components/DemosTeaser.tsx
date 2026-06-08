@@ -23,9 +23,8 @@ export default function DemosTeaser() {
             </h2>
             <p className="text-white/65 leading-relaxed mb-8">
               Our fishing charter demo is a fully working site. You can browse trips,
-              pick a time, pay a deposit, and watch a calendar event appear on the
-              owner&apos;s Google Calendar in real time. This is what we build for your
-              business.
+              pick a time, and pay a deposit — the same flow your customers would
+              go through. This is what we build for your business.
             </p>
             <Link
               href="/demos"
