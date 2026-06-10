@@ -21,18 +21,18 @@ const demos = [
     ],
   },
   {
-    status: "coming-soon" as const,
+    status: "live" as const,
     category: "RV Park",
-    name: "RV & Campground",
+    name: "Redfish Bay RV Resort",
     tagline: "Online reservations for campgrounds and RV parks",
     description:
-      "Site-map based reservations, seasonal pricing, length-of-stay rules, and a guest portal for check-in details. Replaces reservation platforms that charge 5-10% per booking.",
-    url: null,
+      "A full booking platform for an RV park. Guests pick check-in and check-out dates, choose a site type, and pay a deposit online in a couple of minutes. Replaces reservation platforms that charge 5-10% per booking.",
+    url: "https://redfish-bay-rv-resort.vercel.app",
     features: [
-      { icon: Calendar,        label: "Site-map reservation calendar" },
+      { icon: Calendar,        label: "Date range booking" },
       { icon: CreditCard,      label: "Nightly rate + deposit payments" },
-      { icon: Mail,            label: "Check-in detail emails" },
-      { icon: LayoutDashboard, label: "Occupancy dashboard" },
+      { icon: Mail,            label: "Automated booking emails" },
+      { icon: LayoutDashboard, label: "Owner occupancy dashboard" },
     ],
   },
   {
