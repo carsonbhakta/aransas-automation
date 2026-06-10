@@ -30,7 +30,7 @@ const demos = [
     live: true,
     name: "Redfish Bay RV Resort",
     description:
-      "Guests pick check-in and check-out dates, choose a site type, and pay a deposit online. Replaces reservation platforms that take 5 to 10 percent of every booking.",
+      "Guests pick check-in and check-out dates, choose a site type, and pay a deposit online. The owner gets a private dashboard showing every reservation and upcoming arrival. Replaces reservation platforms that take 5 to 10 percent of every booking.",
     cta: "View live demo",
     url: "https://redfish-bay-rv-resort.vercel.app",
     external: true,
