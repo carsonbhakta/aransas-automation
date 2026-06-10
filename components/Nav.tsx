@@ -5,10 +5,10 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 
 const links = [
-  { label: "Services", href: "#services" },
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "Services", href: "/#services" },
+  { label: "How It Works", href: "/#how-it-works" },
   { label: "Demos", href: "/demos" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -18,12 +18,12 @@ export default function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-navy text-white">
       <nav className="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
         {/* Wordmark */}
-        <a
-          href="#"
+        <Link
+          href="/"
           className="font-heading text-xl font-semibold tracking-tight hover:opacity-90 transition-opacity"
         >
           Aransas Automation
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
@@ -46,12 +46,12 @@ export default function Nav() {
               </a>
             )
           )}
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="ml-2 px-4 py-2 rounded-md bg-teal text-white text-sm font-medium hover:bg-teal-dark transition-colors"
           >
             Book a free consult
-          </a>
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -89,13 +89,13 @@ export default function Nav() {
               </a>
             )
           )}
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="mt-1 px-4 py-2 rounded-md bg-teal text-white text-sm font-medium text-center hover:bg-teal-dark transition-colors"
             onClick={() => setOpen(false)}
           >
             Book a free consult
-          </a>
+          </Link>
         </div>
       )}
     </header>

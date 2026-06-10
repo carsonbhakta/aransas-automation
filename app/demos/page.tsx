@@ -1,72 +1,65 @@
 import Link from "next/link";
-import { ExternalLink, Calendar, CreditCard, Mail, LayoutDashboard, Clock } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// When you deploy a demo to Vercel, update the `url` field here.
-// Everything else on the page updates automatically.
+// Drop demo photos into public/demos/ using the filenames below.
+// Recommended size: roughly 4:3, at least 900px wide.
+//   - charter.jpg  → Rockport Bay Charters
+//   - rv.jpg       → Redfish Bay RV Resort
+//   - custom.jpg   → generic "your business" photo (workshop, storefront, etc.)
 // ─────────────────────────────────────────────────────────────────────────────
 const demos = [
   {
-    status: "live" as const,
-    category: "Fishing Charter",
+    badge: "Fishing Charter",
+    live: true,
     name: "Rockport Bay Charters",
-    tagline: "Custom booking system for an inshore fishing guide",
     description:
-      "A full-service booking platform built for a one-person charter operation. Customers browse trips, pick an open time slot, and pay a deposit online in a couple of minutes. No phone tag, no third-party platform taking 6%.",
+      "Customers browse trips, pick an open time slot, and pay a deposit online in a couple of minutes. Built for a one-person charter operation, no phone tag and no platform taking a cut of every booking.",
+    cta: "View live demo",
     url: "https://rockport-bay-charters-demov1.vercel.app",
-    features: [
-      { icon: CreditCard,      label: "Stripe deposit payments" },
-      { icon: Mail,            label: "Automated booking emails" },
-      { icon: LayoutDashboard, label: "Owner admin dashboard" },
-    ],
+    external: true,
+    image: "/demos/charter.jpg",
+    bg: "bg-navy",
+    imageSide: "left" as const,
   },
   {
-    status: "live" as const,
-    category: "RV Park",
+    badge: "RV Park",
+    live: true,
     name: "Redfish Bay RV Resort",
-    tagline: "Online reservations for campgrounds and RV parks",
     description:
-      "A full booking platform for an RV park. Guests pick check-in and check-out dates, choose a site type, and pay a deposit online in a couple of minutes. Replaces reservation platforms that charge 5-10% per booking.",
+      "Guests pick check-in and check-out dates, choose a site type, and pay a deposit online. Replaces reservation platforms that take 5 to 10 percent of every booking.",
+    cta: "View live demo",
     url: "https://redfish-bay-rv-resort.vercel.app",
-    features: [
-      { icon: Calendar,        label: "Date range booking" },
-      { icon: CreditCard,      label: "Nightly rate + deposit payments" },
-      { icon: Mail,            label: "Automated booking emails" },
-      { icon: LayoutDashboard, label: "Owner occupancy dashboard" },
-    ],
+    external: true,
+    image: "/demos/rv.jpg",
+    bg: "bg-teal-dark",
+    imageSide: "right" as const,
   },
   {
-    status: "coming-soon" as const,
-    category: "Trades",
-    name: "Plumbing / HVAC",
-    tagline: "Service call booking for local tradespeople",
+    badge: "Your business here",
+    live: false,
+    name: "Get a custom demo built for free",
     description:
-      "Customers book service calls or request quotes online. Jobs route to your calendar, automated reminders go out to customers, and you see your full schedule in one place.",
-    url: null,
-    features: [
-      { icon: Clock,           label: "Service window scheduling" },
-      { icon: CreditCard,      label: "Deposit or full payment upfront" },
-      { icon: Mail,            label: "Automated reminders" },
-      { icon: LayoutDashboard, label: "Job management dashboard" },
-    ],
+      "Tell us how your business takes bookings today and we'll put together a working demo like these, built around how you actually operate. No cost and no commitment to see it.",
+    cta: "Get your free demo",
+    url: "/#contact",
+    external: false,
+    image: "/demos/custom.jpg",
+    bg: "bg-amber-600",
+    imageSide: "left" as const,
   },
 ];
 
 export default function DemosPage() {
   return (
     <div className="min-h-screen bg-offwhite">
-      {/* Simple back link — no full nav since this page is linked from the homepage */}
-      <div className="max-w-6xl mx-auto px-5 pt-8">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          ← Back to Aransas Automation
-        </Link>
-      </div>
+      <Nav />
 
       {/* Header */}
-      <header className="max-w-6xl mx-auto px-5 pt-14 pb-16 text-center">
+      <header className="max-w-6xl mx-auto px-5 pt-28 pb-16 text-center">
         <p className="text-sm font-semibold tracking-widest text-teal uppercase mb-3">
           Live demos
         </p>
@@ -74,90 +67,74 @@ export default function DemosPage() {
           See what we build
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Every demo is a real, working system — not a mockup. Click through,
-          make a booking, see what the owner dashboard looks like. This is
-          exactly what we build for your business.
+          Every demo below is a real, working system, not a mockup. Click through
+          and try it yourself, or tell us about your business and we&apos;ll build
+          one for you.
         </p>
       </header>
 
       {/* Demo cards */}
-      <main className="max-w-6xl mx-auto px-5 pb-24">
-        <div className="grid md:grid-cols-3 gap-6">
-          {demos.map((demo) => (
-            <div
-              key={demo.name}
-              className="bg-white rounded-2xl border border-border shadow-sm flex flex-col overflow-hidden"
-            >
-              {/* Card header band */}
-              <div className="bg-navy px-6 py-5">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-semibold tracking-widest text-teal uppercase">
-                    {demo.category}
-                  </span>
-                  {demo.status === "live" ? (
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-green-400">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
-                      Live
-                    </span>
-                  ) : (
-                    <span className="text-xs font-medium text-white/40">
-                      Coming soon
-                    </span>
-                  )}
-                </div>
-                <h2 className="font-heading text-xl font-semibold text-white">
-                  {demo.name}
-                </h2>
-                <p className="text-white/60 text-sm mt-1">{demo.tagline}</p>
-              </div>
-
-              {/* Card body */}
-              <div className="flex flex-col flex-1 px-6 py-5 gap-5">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {demo.description}
-                </p>
-
-                {/* Feature list */}
-                <ul className="flex flex-col gap-2.5">
-                  {demo.features.map(({ icon: Icon, label }) => (
-                    <li key={label} className="flex items-center gap-2.5 text-sm text-foreground">
-                      <Icon size={15} className="text-teal flex-shrink-0" strokeWidth={2} />
-                      {label}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA */}
-                <div className="mt-auto pt-2">
-                  {demo.status === "live" && demo.url ? (
-                    <a
-                      href={demo.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-teal text-white text-sm font-medium hover:bg-teal-dark transition-colors"
-                    >
-                      View live demo
-                      <ExternalLink size={14} strokeWidth={2} />
-                    </a>
-                  ) : (
-                    <div className="flex items-center justify-center w-full px-4 py-2.5 rounded-lg bg-muted text-muted-foreground text-sm font-medium cursor-default">
-                      In development
-                    </div>
-                  )}
-                </div>
-              </div>
+      <main className="max-w-5xl mx-auto px-5 pb-24 flex flex-col gap-8">
+        {demos.map((demo) => (
+          <div
+            key={demo.name}
+            className={`${demo.bg} rounded-2xl p-6 md:p-10 flex flex-col gap-8 md:gap-12 items-center ${
+              demo.imageSide === "right" ? "md:flex-row-reverse" : "md:flex-row"
+            }`}
+          >
+            {/* Photo */}
+            <div className="relative w-full md:w-2/5 aspect-[4/3] rounded-xl overflow-hidden flex-shrink-0 bg-black/10">
+              <Image
+                src={demo.image}
+                alt={demo.name}
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
+              />
             </div>
-          ))}
-        </div>
 
-        {/* Bottom note */}
-        <p className="text-center text-sm text-muted-foreground mt-12">
-          Want a custom system for your business?{" "}
-          <Link href="/#contact" className="text-teal hover:underline font-medium">
-            Get in touch
-          </Link>
-        </p>
+            {/* Copy */}
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-3">
+                {demo.live && (
+                  <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
+                )}
+                <span className="text-xs font-semibold tracking-widest uppercase text-white/70">
+                  {demo.badge}
+                </span>
+              </div>
+              <h2 className="font-heading text-2xl md:text-3xl font-semibold text-white mb-4">
+                {demo.name}
+              </h2>
+              <p className="text-white/75 leading-relaxed mb-6">
+                {demo.description}
+              </p>
+
+              {demo.external ? (
+                <a
+                  href={demo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                >
+                  {demo.cta}
+                  <ArrowRight size={18} strokeWidth={2.5} />
+                </a>
+              ) : (
+                <Link
+                  href={demo.url}
+                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                >
+                  {demo.cta}
+                  <ArrowRight size={18} strokeWidth={2.5} />
+                </Link>
+              )}
+            </div>
+          </div>
+        ))}
       </main>
+
+      <Footer />
     </div>
   );
 }
