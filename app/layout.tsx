@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Hanken_Grotesk, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-hanken",
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-newsreader",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Aransas Automation | AI Tools for Rockport Businesses",
+  title: "Your own booking site, run from your phone | Aransas Automation",
   description:
-    "Booking websites, AI phone answering, and smarter ads for small businesses in Rockport, TX.",
+    "We build Texas Coastal Bend fishing guides their own booking site. Take bookings day or night, keep every dollar you earn, and run it all from your phone. Text Carson in Rockport for a free preview.",
   openGraph: {
-    title: "Aransas Automation",
+    title: "Your own booking site, run from your phone",
     description:
-      "AI tools that actually move the needle for Rockport businesses.",
+      "A booking site built for charter captains. Take bookings day or night, keep every dollar, and run it all from your phone.",
     url: "https://aransasautomation.com",
     siteName: "Aransas Automation",
     locale: "en_US",
@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} scroll-smooth`}
+      className={`${hanken.variable} ${newsreader.variable} scroll-smooth`}
     >
       <body className="antialiased">{children}</body>
     </html>

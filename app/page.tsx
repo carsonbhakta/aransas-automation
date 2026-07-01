@@ -1,25 +1,30 @@
-import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import HowItWorks from "@/components/HowItWorks";
-import DemosTeaser from "@/components/DemosTeaser";
-import About from "@/components/About";
-import BookingContact from "@/components/BookingContact";
-import Footer from "@/components/Footer";
+import Pillars from "@/components/Pillars";
+import IncludedList from "@/components/IncludedList";
+import WeatherNote from "@/components/WeatherNote";
+import OwnershipBand from "@/components/OwnershipBand";
+import Pricing from "@/components/Pricing";
+import FinalCta from "@/components/FinalCta";
+import SiteFooter from "@/components/SiteFooter";
+import StickyTextBar from "@/components/StickyTextBar";
 
 export default function Home() {
   return (
-    <>
-      <Nav />
+    <div className="min-h-screen bg-bg">
       <main>
         <Hero />
-        <Services />
-        <HowItWorks />
-        <DemosTeaser />
-        <About />
-        <BookingContact />
+        <Pillars />
+        <IncludedList />
+        <WeatherNote />
+        <OwnershipBand />
+        <Pricing />
+        <FinalCta />
       </main>
-      <Footer />
-    </>
+      <SiteFooter />
+
+      {/* room so the fixed text bar never covers the footer */}
+      <div aria-hidden="true" className="h-[84px]" />
+      <StickyTextBar />
+    </div>
   );
 }

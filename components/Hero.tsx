@@ -1,41 +1,183 @@
+import Image from "next/image";
+import { SMS_HREF, DEMO_URL } from "@/lib/site";
+import TextMeButton from "@/components/TextMeButton";
+
+// Fallback shown only if the water photo fails to load.
+const heroGradient =
+  "radial-gradient(130% 85% at 28% 0%, #84c8d3 0%, rgba(132,200,211,0) 55%), linear-gradient(180deg, #2f8aa0 0%, #14627a 50%, #0b4859 100%)";
+
+const HEADLINE = "Your own booking site, run from your phone.";
+const SUBHEAD =
+  "Take bookings day or night, keep every dollar you earn, and never lose a trip to phone tag again.";
+
+function DashboardPhone({ className = "" }: { className?: string }) {
+  return (
+    <Image
+      src="/images/owner-dashboard.png"
+      alt="The owner dashboard on a phone, showing the next trip, trips booked this week, and the week's revenue."
+      width={908}
+      height={1638}
+      priority
+      sizes="(min-width: 1024px) 320px, 248px"
+      className={className}
+    />
+  );
+}
+
+function DemoLink({
+  onPhoto = false,
+  className = "",
+}: {
+  onPhoto?: boolean;
+  className?: string;
+}) {
+  return (
+    <a
+      href={DEMO_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex h-[50px] items-center justify-center gap-2 rounded-full border-[1.5px] px-6 text-[15px] font-semibold no-underline transition-colors ${
+        onPhoto
+          ? "border-white/50 text-white hover:bg-white/10"
+          : "border-hero-line text-hero-ink hover:bg-white/50"
+      } ${className}`}
+    >
+      See the live demo
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M7 17 17 7M9 7h8v8" />
+      </svg>
+    </a>
+  );
+}
+
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center bg-navy"
-      style={{
-        backgroundImage: "url('/hero-bg.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      aria-label="Hero"
-    >
-      {/* Dark overlay — tints photo to navy palette. Also acts as background when no photo is present. */}
-      <div className="absolute inset-0 bg-navy/80" />
+    <section className="bg-hero-bg text-hero-ink">
+      {/* top bar */}
+      <div className="mx-auto flex w-full max-w-[480px] items-center justify-between px-5 pb-2 pt-4 lg:max-w-6xl lg:px-8 lg:pt-6">
+        <div className="flex flex-col leading-[1.05]">
+          <span className="font-display text-[17px] font-medium tracking-[0.005em] lg:text-[20px]">
+            Aransas Automation
+          </span>
+          <span className="mt-0.5 text-[10px] tracking-[0.02em] text-hero-sub lg:text-[11px]">
+            Rockport, Texas
+          </span>
+        </div>
+        <a
+          href={SMS_HREF}
+          className="rounded-full border-[1.5px] border-hero-line px-[13px] py-[7px] text-[13px] font-bold text-hero-ink no-underline transition-colors hover:bg-white/50 lg:px-4 lg:py-2 lg:text-[14px]"
+        >
+          Text us
+        </a>
+      </div>
 
-      <div className="relative z-10 max-w-3xl mx-auto px-5 text-center text-white">
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight mb-6">
-          AI tools that actually move the needle for local businesses.
-        </h1>
+      {/* ---------- MOBILE / TABLET hero ---------- */}
+      <div className="lg:hidden">
+        <div
+          className="relative mt-2 h-[332px] overflow-hidden"
+          style={{ background: heroGradient }}
+        >
+          <Image
+            src="/images/hero-water.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(8,40,50,.15) 0%, rgba(8,40,50,0) 30%, rgba(8,40,50,.35) 62%, rgba(8,40,50,.82) 100%)",
+            }}
+          />
+          <div className="relative mx-auto h-full w-full max-w-[480px] px-5">
+            <div className="absolute inset-x-5 bottom-[22px] z-[2]">
+              <div className="mb-3 inline-block rounded-full border border-white/30 bg-white/20 px-[10px] py-1 text-[11px] font-bold tracking-[0.02em] text-white">
+                For Texas Coastal Bend captains
+              </div>
+              <h1 className="mb-[11px] font-display text-[33px] font-medium leading-[1.08] tracking-[-0.015em] text-white [text-shadow:0_1px_16px_rgba(6,30,38,0.45)]">
+                {HEADLINE}
+              </h1>
+              <p className="text-[16px] leading-[1.5] text-white/90 [text-shadow:0_1px_10px_rgba(6,30,38,0.4)]">
+                {SUBHEAD}
+              </p>
+            </div>
+          </div>
+        </div>
 
-        <p className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl mx-auto">
-          Booking websites, AI phone answering, and smarter ads, built for
-          business owners in Rockport who don&apos;t have time to figure out the tech.
-        </p>
+        <div className="mx-auto w-full max-w-[480px] px-5 pb-[30px] pt-5">
+          <DashboardPhone className="mx-auto mb-2 h-auto w-[248px] drop-shadow-[0_16px_30px_rgba(16,40,45,0.28)]" />
+          <div className="my-[14px] mb-5 text-center text-[12px] text-hero-sub">
+            Your bookings and your money, all on your phone.
+          </div>
+          <TextMeButton variant="primary" />
+          <div className="mt-[11px]">
+            <DemoLink className="w-full" />
+          </div>
+          <div className="mt-[13px] text-center text-[12px] text-hero-sub">
+            Free preview of your own site. No charge, no commitment.
+          </div>
+        </div>
+      </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="#contact"
-            className="px-7 py-3.5 rounded-md bg-teal text-white font-medium text-base hover:bg-teal-dark transition-colors"
-          >
-            Book a free 30-minute consult
-          </a>
-          <a
-            href="#services"
-            className="px-7 py-3.5 rounded-md border border-white/40 text-white font-medium text-base hover:bg-white/10 transition-colors"
-          >
-            See what we do
-          </a>
+      {/* ---------- DESKTOP hero (full-bleed photo, two columns) ---------- */}
+      <div
+        className="relative mt-4 hidden overflow-hidden lg:block"
+        style={{ background: heroGradient }}
+      >
+        <Image
+          src="/images/hero-water.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(8,40,50,.82) 0%, rgba(8,40,50,.55) 42%, rgba(8,40,50,.2) 100%), linear-gradient(180deg, rgba(8,40,50,0) 55%, rgba(8,40,50,.45) 100%)",
+          }}
+        />
+
+        <div className="relative mx-auto grid min-h-[600px] max-w-6xl grid-cols-[1.05fr_0.95fr] items-center gap-12 px-8 py-20">
+          <div className="max-w-xl">
+            <div className="mb-5 inline-block rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[13px] font-bold tracking-[0.02em] text-white">
+              For Texas Coastal Bend captains
+            </div>
+            <h1 className="mb-5 font-display text-[54px] font-medium leading-[1.04] tracking-[-0.02em] text-white [text-shadow:0_2px_24px_rgba(6,30,38,0.5)]">
+              {HEADLINE}
+            </h1>
+            <p className="max-w-lg text-[20px] leading-[1.5] text-white/90 [text-shadow:0_1px_12px_rgba(6,30,38,0.45)]">
+              {SUBHEAD}
+            </p>
+            <div className="mt-9 flex items-center gap-4">
+              <TextMeButton variant="primary" className="w-auto px-9" />
+              <DemoLink onPhoto />
+            </div>
+            <div className="mt-5 text-[13px] text-white/80">
+              Free preview of your own site. No charge, no commitment.
+            </div>
+          </div>
+
+          <div className="flex justify-center">
+            <DashboardPhone className="h-auto w-[320px] drop-shadow-[0_28px_50px_rgba(6,25,30,0.5)]" />
+          </div>
         </div>
       </div>
     </section>
