@@ -20,6 +20,7 @@
   --color-band: var(--band);
   --color-band-ink: var(--band-ink);
   --color-sand: var(--sand);
+  --color-deep: var(--deep);
 
   --font-sans: var(--font-hanken);
   --font-display: var(--font-newsreader);
@@ -42,6 +43,7 @@
   --band: #0e7c6b;
   --band-ink: #eaf7f2;
   --sand: #d98a4e;
+  --deep: #0b4859;
 }
 
 @layer base {

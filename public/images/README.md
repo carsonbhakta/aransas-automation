@@ -1,18 +1,17 @@
-# Photos the landing page needs
+# Photos the landing page uses
 
-Drop the four images below in this folder. You can name them exactly as shown and
-they'll slot in, OR just hand Carson (Claude) the raw files and he'll name, crop,
-and wire them for you. Bigger/higher-res is always better, I'll crop down.
+All four slots are filled and wired into the page. To swap any of them, drop a
+new file in this folder with the same name and it updates everywhere it appears.
 
-| # | File name             | Where it shows          | What works best                                                                                          |
-|---|-----------------------|-------------------------|----------------------------------------------------------------------------------------------------------|
-| 1 | `hero-water.jpg`      | Top banner behind the headline | A wide landscape shot of the bay/water/coast. White text sits over the bottom-left with a dark fade, so keep the main subject up top. Aim for 1920x1080 or larger. |
-| 2 | `owner-dashboard.png` | The phone in the hero   | A portrait screenshot of your owner dashboard as it looks on a phone (open the demo admin on your phone and screenshot it). Any normal phone screenshot size is fine. |
-| 3 | `website-laptop.jpg`  | "Bookings" section       | Your customer-facing booking site on a laptop, or a clean screenshot of it. Landscape, 1200px wide or larger. |
-| 4 | `orders-page.jpg`     | "Your money" section     | A screenshot of the orders / payments page (desktop screenshot or a phone-in-hand photo). Landscape, 1200px wide or larger. |
+| # | File name             | Where it shows                 | Notes                                                                 |
+|---|-----------------------|--------------------------------|-----------------------------------------------------------------------|
+| 1 | `hero-water.jpg`      | Top banner behind the headline | Rockport/Fulton harbor aerial. Keep the main subject up top; white text sits over the bottom-left. |
+| 2 | `owner-dashboard.png` | The phone in the hero          | Currently the design mock. Swap for a real phone screenshot of the demo admin when ready. |
+| 3 | `website-laptop.png`  | "Bookings" section             | Transparent-background laptop mockup, so it must stay PNG (JPEG can't do transparency). |
+| 4 | `orders-page.jpg`     | "Your money" section           | Screenshot of the demo admin orders page.                              |
+| 5 | `logo.png`            | Header, final CTA, icons, OG image | Cream AA mark on transparent background. Needs a dark backdrop to be visible. |
 
 Notes:
-- Formats: photos as .jpg, screenshots as .png (crisper text). Either works, I can convert.
-- Don't worry about exact dimensions or cropping. Give me the biggest version you have.
-- Nothing here is wired into the site yet, so a missing file won't break anything.
-  I'll swap each placeholder for the real image once you send it.
+- Next.js optimizes and resizes everything at request time, so big files are fine.
+- Keep transparency in mind: anything shown without a card frame (laptop, logo)
+  needs a transparent PNG.

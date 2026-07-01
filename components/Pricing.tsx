@@ -7,8 +7,9 @@ export default function Pricing() {
           Plain pricing
         </div>
         <p className="text-[17px] font-semibold leading-[1.45] text-ink lg:text-[24px] lg:leading-[1.4]">
-          One simple setup fee, then a flat monthly. That&apos;s it. Nobody takes a
-          cut of your bookings, so the busier your season, the more you keep.
+          One setup fee to build it. Then a flat monthly that runs less than
+          what one trip brings in. Add-ons are flat too. Nobody takes a cut of
+          your bookings, so the busier your season, the more you keep.
         </p>
       </div>
     </section>

@@ -1,3 +1,6 @@
+"use client";
+
+import { track } from "@vercel/analytics";
 import { SMS_HREF } from "@/lib/site";
 
 type Variant = "primary" | "sticky";
@@ -22,15 +25,19 @@ export default function TextMeButton({
   variant = "primary",
   className = "",
   label,
+  placement = variant,
 }: {
   variant?: Variant;
   className?: string;
   label?: string;
+  /** Where on the page this button sits, so taps can be told apart in analytics. */
+  placement?: string;
 }) {
   const s = styles[variant];
   return (
     <a
       href={SMS_HREF}
+      onClick={() => track("text_tap", { placement })}
       className={`inline-flex w-full items-center justify-center gap-[9px] rounded-full bg-brand px-6 font-bold text-brand-ink no-underline transition-opacity hover:opacity-90 ${s.box} ${className}`}
     >
       <svg

@@ -3,8 +3,9 @@
 
 const PHONE_TEL = "+13614638200";
 
-/** Prefilled SMS so the captain doesn't have to think of what to say. */
-const SMS_BODY = "Hey, saw your site. I run [boat name] and want a free preview.";
+/** Prefilled SMS so the captain doesn't have to think of what to say.
+ *  Send-ready as written: no blanks for him to fill in before hitting send. */
+const SMS_BODY = "Hey, saw your site. I want a free preview for my charter.";
 
 /** Carson's business line, formatted for display. */
 export const PHONE_DISPLAY = "361-463-8200";

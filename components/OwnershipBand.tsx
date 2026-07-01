@@ -1,3 +1,5 @@
+import DemoLink from "@/components/DemoLink";
+
 // The most reassuring message on the page for this audience. Give it real estate.
 export default function OwnershipBand() {
   return (
@@ -8,15 +10,20 @@ export default function OwnershipBand() {
         </div>
         <div className="lg:grid lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16">
           <p className="mb-4 font-display text-[25px] font-medium leading-[1.22] tracking-[-0.01em] lg:mb-0 lg:text-[38px]">
-            We build the whole thing and set it all up for you. You don&apos;t touch
+            I build the whole thing and set it all up for you. You don&apos;t touch
             anything technical. It&apos;s your site, your name, your customers, your
             money.
           </p>
-          <p className="text-[15px] leading-[1.5] text-hero-sub lg:text-[17px]">
-            Built right here in Rockport by someone who knows the bay. No call
-            center, no big company. The live demo is a real working site, not a
-            slideshow, so you can see exactly what you&apos;d get.
-          </p>
+          <div>
+            <p className="text-[15px] leading-[1.5] text-hero-sub lg:text-[17px]">
+              Built right here in Rockport by someone who knows the bay. No call
+              center, no big company. The live demo is a real working site, not a
+              slideshow, so you can see exactly what you&apos;d get.
+            </p>
+            <div className="mt-5">
+              <DemoLink placement="ownership" className="w-full lg:w-auto" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

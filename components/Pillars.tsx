@@ -1,5 +1,4 @@
-const stripe =
-  "repeating-linear-gradient(45deg,#eef4f0 0 11px,#e6efe9 11px 22px)";
+import Image from "next/image";
 
 const SECTION = "mx-auto w-full max-w-[480px] px-5 lg:max-w-6xl lg:px-8";
 const GRID = "grid gap-4 lg:grid-cols-2 lg:items-center lg:gap-16";
@@ -28,29 +27,6 @@ function Body({ children }: { children: string }) {
   );
 }
 
-function PhotoPlaceholder({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <div
-      className="relative flex h-[172px] w-full flex-col items-center justify-center gap-[9px] overflow-hidden rounded-card border border-dashed border-[#b6cabf] lg:h-[300px]"
-      style={{ background: stripe }}
-    >
-      <div className="flex h-[42px] w-[42px] items-center justify-center rounded-[11px] bg-white shadow-[0_2px_6px_rgba(0,0,0,0.08)]">
-        {icon}
-      </div>
-      <div className="text-[12px] font-bold text-[#4f6862]">{label}</div>
-      <div className="text-[10px] tracking-[0.03em] text-[#8aa39a]">
-        Placeholder, swap in real photo
-      </div>
-    </div>
-  );
-}
-
 export default function Pillars() {
   return (
     <>
@@ -62,21 +38,21 @@ export default function Pillars() {
               <Eyebrow>Bookings</Eyebrow>
               <Heading>A custom booking site, built just for you</Heading>
               <Body>
-                We design and build your own site, branded to your charter. It
+                I design and build your own site, branded to your charter. It
                 takes bookings day or night and collects a deposit up front, so no
                 more no-shows and no more chasing people for money.
               </Body>
             </div>
 
             <div className="flex flex-col gap-[13px]">
-              <PhotoPlaceholder
-                label="Your website on a laptop"
-                icon={
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="12" rx="2" />
-                    <path d="M2 20h20" />
-                  </svg>
-                }
+              {/* Transparent mockup, so it sits straight on the page with no card frame. */}
+              <Image
+                src="/images/website-laptop.png"
+                alt="A charter booking site shown on a laptop, with the captain's photo, trip list, and a Book Online button."
+                width={1536}
+                height={1024}
+                sizes="(min-width: 1024px) 544px, calc(100vw - 40px)"
+                className="h-auto w-full drop-shadow-[0_14px_26px_rgba(16,40,45,0.18)]"
               />
               <div className="flex items-center gap-[11px] rounded-card border border-line bg-surface p-[13px] shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
                 <div className="flex h-[34px] w-[34px] flex-none items-center justify-center rounded-full bg-[#dcf2e6]">
@@ -111,15 +87,16 @@ export default function Pillars() {
             </div>
 
             <div className="flex flex-col gap-[13px] lg:order-1">
-              <PhotoPlaceholder
-                label="Orders page on your dashboard"
-                icon={
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M7 4h10a2 2 0 0 1 2 2v14l-3-2-2 2-2-2-2 2-2-2-3 2V6a2 2 0 0 1 2-2z" />
-                    <path d="M9 8h6M9 12h6" />
-                  </svg>
-                }
-              />
+              <div className="overflow-hidden rounded-card border border-line bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+                <Image
+                  src="/images/orders-page.jpg"
+                  alt="The orders page on the captain's dashboard, listing upcoming trips with every deposit paid."
+                  width={2842}
+                  height={1578}
+                  sizes="(min-width: 1024px) 544px, calc(100vw - 40px)"
+                  className="h-auto w-full"
+                />
+              </div>
               <div className="flex gap-[9px]">
                 <div className="flex-1 rounded-card border border-line bg-surface px-[13px] py-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
                   <div className="font-display text-[21px] font-extrabold text-brand">$0</div>
